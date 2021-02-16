@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Navbar } from './Components/Navbar';
+import { Home } from './Pages/Home';
+import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom'
+import { Editor } from './Pages/Editor';
+import React, { useState } from 'react'
+
+const data = {
+  thought: "Today is a wonderful day to have a wonderful day!",
+  author: "J. K. Rowling"
+}
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+
+      <Switch>
+        <Route path='/editor'>
+          <Editor thought={data.thought} author={data.author} />
+        </Route>
+        <Route path='/' >
+          <Navbar />
+          <Home />
+        </Route>
+
+      </Switch>
+    </>
   );
 }
 
