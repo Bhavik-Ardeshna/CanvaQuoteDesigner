@@ -139,7 +139,6 @@ class Canvas extends Component {
             );
         };
         image.src = this.props.image;
-        console.log(this.props.fontFamily)
     }
     handleTransform = () => {
         const props = {
@@ -153,7 +152,6 @@ class Canvas extends Component {
         };
 
     };
-
     handleStageClick = e => {
         this.setState({
             selectedShapeName: e.target.name()
@@ -165,16 +163,16 @@ class Canvas extends Component {
 
                 <Stage width={window.innerWidth} height={window.innerHeight}>
                     <Layer>
-                        <URLImage src={back} x={400} y={90} width={850} height={850} />
+                        <URLImage src={back} x={400} y={60} width={850} height={850} />
                         <Image
                             image={this.state.image}
                             ref={node => {
                                 this.image = node;
                             }}
-                            x={500}
-                            y={50}
-                            width={840}
-                            height={840}
+                            x={400}
+                            y={60}
+                            width={850}
+                            height={850}
                             draggable
                             onTransform={this.handleTransform}
                             onDragMove={this.handleTransform}
